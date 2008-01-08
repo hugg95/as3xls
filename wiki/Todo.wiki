@@ -1,6 +1,6 @@
 = Formulas =
 
-  * Right as3xls displays formulas in human readable form and evaluates them but does not yet support converting formulas in human readable form into weird Excel form (RPN with tokens represented by numbers if you're curious).
+  * Right now as3xls displays formulas in human readable form and evaluates them but does not yet support converting formulas in human readable form into weird Excel form (RPN with tokens represented by numbers if you're curious).
   * Excel has several hundred built in functions. So far I've only implemented the easy ones like SUM, AVERAGE, and so on.
   * Cell references can be kinda funky. I suspect there are bugs lurking here and there. 
 
