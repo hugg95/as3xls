@@ -184,7 +184,7 @@ package com.as3xls.xls {
 		 * @return A ByteArray containing the saved sheet in BIFF2 form
 		 * 
 		 */
-		public function saveToByteArray():ByteArray {
+		public function saveToByteArray(charset:String ="cn-gb"):ByteArray {
 			var s:Sheet = _sheets[0] as Sheet;
 			
 			var br:BIFFWriter = new BIFFWriter();
@@ -252,9 +252,10 @@ package com.as3xls.xls {
 						cell.data.writeByte(0);
 						cell.data.writeByte(0);
 						cell.data.writeByte(0);
-						var len:uint = String(value).length;
-						cell.data.writeByte(len);
-						cell.data.writeUTFBytes(value);
+						var ba:ByteArray = new ByteArray();
+						ba.writeMultiByte(String(value),charset);
+						cell.data.writeByte(ba.length);
+						cell.data.writeMultiByte(String(value),charset);
 					} else {
 						cell.type = Type.BLANK;
 						cell.data.writeByte(0);
